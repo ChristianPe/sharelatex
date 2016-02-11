@@ -56,7 +56,7 @@ RUN grunt install
 ENV SHARELATEX_CONFIG /etc/sharelatex/settings.coffee
 RUN mkdir -p /etc/sharelatex \
 && mv config/settings.development.coffee $SHARELATEX_CONFIG \
-&& perl -pi -e 's/behindProxy:.*/behindProxy: true/; s/cacheStaticAssets:.*/cacheStaticAssets: true/; s/secureCookie:.*/secureCookie: true/; s/DATA_DIR\s*=.*/DATA_DIR = "\/data\/sharelatex"/; s/TMP_DIR\s*=.*/TMP_DIR = "\/data\/sharelatex\/tmp"/;' $SHARELATEX_CONFIG
+&& perl -pi -e 's/behindProxy:.*/behindProxy: true/; s/cacheStaticAssets:.*/cacheStaticAssets: true/; s/DATA_DIR\s*=.*/DATA_DIR = "\/data\/sharelatex"/; s/TMP_DIR\s*=.*/TMP_DIR = "\/data\/sharelatex\/tmp"/;' $SHARELATEX_CONFIG
 
 # Workaround for "Error: Could not load the bindings file" error
 RUN (cd web && rm -r node_modules/bcrypt && npm install bcrypt)
