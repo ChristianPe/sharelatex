@@ -32,7 +32,10 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 \
 && apt-get -qqy install mongodb-org
 
 # Install Aspell
-RUN apt-get -qqy install aspell
+RUN apt-get -qqy install aspell aspell-en
+
+# Install image conversion tools
+RUN apt-get -qqy install imagemagick optipng
 
 # Install nginx
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv ABF5BD827BD9BF62 \
@@ -52,11 +55,14 @@ RUN npm install
 # Compile and install ShareLaTeX
 RUN grunt install
 
+# Minify js assets
+RUN cd /var/www/sharelatex/web && grunt compile:minify
+
 # Install and customize config file
 ENV SHARELATEX_CONFIG /etc/sharelatex/settings.coffee
 RUN mkdir -p /etc/sharelatex \
 && mv config/settings.development.coffee $SHARELATEX_CONFIG \
-&& perl -pi -e 's/behindProxy:.*/behindProxy: true/; s/cacheStaticAssets:.*/cacheStaticAssets: true/; s/DATA_DIR\s*=.*/DATA_DIR = "\/data\/sharelatex"/; s/TMP_DIR\s*=.*/TMP_DIR = "\/data\/sharelatex\/tmp"/;' $SHARELATEX_CONFIG
+&& perl -pi -e 's/behindProxy:.*/behindProxy: true/; s/cacheStaticAssets:.*/cacheStaticAssets: true/; s/useMinifiedJs:.*/useMinifiedJs: true/; s/DATA_DIR\s*=.*/DATA_DIR = "\/data\/sharelatex"/; s/TMP_DIR\s*=.*/TMP_DIR = "\/data\/sharelatex\/tmp"/;' $SHARELATEX_CONFIG
 
 # Workaround for "Error: Could not load the bindings file" error
 RUN (cd web && rm -r node_modules/bcrypt && npm install bcrypt)
