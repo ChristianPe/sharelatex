@@ -47,7 +47,7 @@ ADD package/nginx/sharelatex.conf /etc/nginx/conf.d/sharelatex.conf
 
 # Install git from source, because git >= 1.7.10 is required for grunt to work properly
 RUN \
-    apt-get -qqy install libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev && \
+    apt-get -qqy install libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev autoconf automake && \
     cd /tmp && \
     wget https://www.kernel.org/pub/software/scm/git/git-2.7.1.tar.xz && \
     tar xvf git-2.7.1.tar.xz && \
