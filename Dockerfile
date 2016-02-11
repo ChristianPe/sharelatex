@@ -12,7 +12,7 @@ MAINTAINER "Joshua C. Randall" <jcrandall@alum.mit.edu>
 
 # Install basic prerequisites
 RUN apt-get -qqy update \
-&& apt-get -qqy install git build-essential curl python-software-properties zlib1g-dev zip unzip wget
+&& apt-get -qqy install build-essential curl python-software-properties zlib1g-dev zip unzip wget
 
 # Install Node.js
 RUN apt-add-repository -y ppa:chris-lea/node.js \
@@ -44,6 +44,18 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv ABF5BD827BD9BF6
 && apt-get -qqy install nginx \
 && rm /etc/nginx/conf.d/default.conf
 ADD package/nginx/sharelatex.conf /etc/nginx/conf.d/sharelatex.conf
+
+# Install git from source, because git >= 1.7.10 is required for grunt to work properly
+RUN \
+    apt-get -qqy install libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev && \
+    cd /tmp && \
+    wget https://www.kernel.org/pub/software/scm/git/git-2.7.1.tar.xz && \
+    tar xvf git-2.7.1.tar.xz && \
+    cd git-2.7.1 && \
+    make configure && \
+    ./configure --prefix=/usr && \
+    make all && \
+    make install
 
 # Install sharelatex from git
 ADD . /var/www/sharelatex
