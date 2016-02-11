@@ -5,12 +5,16 @@ ShareLaTeX
 
 *[If you want help installing and maintaining ShareLaTeX at your university or workplace, we offer an officially supported version called ShareLaTeX Server Pro. It also comes with extra security and admin features. Click here to find out more!](https://www.sharelatex.com/university/onsite.html)*
 
+Keeping up to date
+------------
+Sign up to the [mailing list](http://eepurl.com/bPWeiH) to get updates on ShareLaTeX Releases and development
+
 Installation
 ------------
 
 We have detailed installation instructions in our wiki:
 
-* [Installing ShareLaTeX in Production](https://github.com/sharelatex/sharelatex/wiki/Production-Installation-Instructions)
+* [Installing ShareLaTeX in Production using docker](https://github.com/sharelatex/sharelatex/wiki/Production-Installation-Instructions)
 * [Setting up a ShareLaTeX Development Environment](https://github.com/sharelatex/sharelatex/wiki/Setting-up-a-Development-Environment)
 
 **If you have any problems, have a look at our page of [Frequent Problems and Questions](https://github.com/sharelatex/sharelatex/wiki/FAQ).**
@@ -84,11 +88,6 @@ The backend API for managing project tags (folders).
 ### [spelling](https://github.com/sharelatex/spelling-sharelatex)
 
 An API for running server-side spelling checking on ShareLaTeX documents.
-
-Dropbox
--------
-
-Please note that certain features like Dropbox integration are not functional in the open source code base yet, despite appearing in the user interface. We're working on this, sorry!
 
 Contributing
 ------------
