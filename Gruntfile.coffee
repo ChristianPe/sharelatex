@@ -13,43 +13,43 @@ settings = require("settings-sharelatex")
 SERVICES = [{
 	name: "web"
 	repo: "https://github.com/sharelatex/web-sharelatex.git"
-	version: "v0.2.0"
+	version: "master"
 }, {
 	name: "real-time"
 	repo: "https://github.com/sharelatex/real-time-sharelatex.git"
-	version: "v0.2.0"
+	version: "master"
 }, {
 	name: "document-updater"
 	repo: "https://github.com/sharelatex/document-updater-sharelatex.git"
-	version: "v0.2.0"
+	version: "master"
 }, {
 	name: "clsi"
 	repo: "https://github.com/sharelatex/clsi-sharelatex.git"
-	version: "v0.2.0"
+	version: "master"
 }, {
 	name: "filestore"
 	repo: "https://github.com/sharelatex/filestore-sharelatex.git"
-	version: "v0.2.0"
+	version: "master"
 }, {
 	name: "track-changes"
 	repo: "https://github.com/sharelatex/track-changes-sharelatex.git"
-	version: "v0.2.0"
+	version: "master"
 }, {
 	name: "docstore"
 	repo: "https://github.com/sharelatex/docstore-sharelatex.git"
-	version: "v0.2.0"
+	version: "master"
 }, {
 	name: "chat"
 	repo: "https://github.com/sharelatex/chat-sharelatex.git"
-	version: "v0.2.0"
+	version: "master"
 }, {
 	name: "tags"
 	repo: "https://github.com/sharelatex/tags-sharelatex.git"
-	version: "v0.2.0"
+	version: "master"
 }, {
 	name: "spelling"
 	repo: "https://github.com/sharelatex/spelling-sharelatex.git"
-	version: "v0.2.0"
+	version: "master"
 }]
 
 module.exports = (grunt) ->
